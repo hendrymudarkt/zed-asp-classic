@@ -1,0 +1,142 @@
+{
+  "ASP Response Write": {
+    "prefix": "rw",
+    "body": "Response.Write ${1:expression}",
+    "description": "Response.Write shorthand"
+  },
+  "ASP Response Write Inline": {
+    "prefix": "rwi",
+    "body": "<%= ${1:expression} %>",
+    "description": "Inline ASP expression output"
+  },
+  "ASP Block": {
+    "prefix": "asp",
+    "body": "<%\n\t${1}\n%>",
+    "description": "ASP code block"
+  },
+  "Dim Variable": {
+    "prefix": "dim",
+    "body": "Dim ${1:varName}",
+    "description": "Declare variable"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": "If ${1:condition} Then\n\t${2}\nEnd If",
+    "description": "If...Then...End If"
+  },
+  "If Else Statement": {
+    "prefix": "ife",
+    "body": "If ${1:condition} Then\n\t${2}\nElse\n\t${3}\nEnd If",
+    "description": "If...Else...End If"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": "For ${1:i} = ${2:0} To ${3:10}\n\t${4}\nNext",
+    "description": "For...Next loop"
+  },
+  "For Each Loop": {
+    "prefix": "foreach",
+    "body": "For Each ${1:item} In ${2:collection}\n\t${3}\nNext",
+    "description": "For Each...In...Next loop"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": "While ${1:condition}\n\t${2}\nWend",
+    "description": "While...Wend loop"
+  },
+  "Do While Loop": {
+    "prefix": "do",
+    "body": "Do While ${1:condition}\n\t${2}\nLoop",
+    "description": "Do While...Loop"
+  },
+  "Sub Declaration": {
+    "prefix": "sub",
+    "body": "Sub ${1:SubName}(${2})\n\t${3}\nEnd Sub",
+    "description": "Sub procedure"
+  },
+  "Function Declaration": {
+    "prefix": "func",
+    "body": "Function ${1:FuncName}(${2})\n\t${3}\n\t${1:FuncName} = ${4:result}\nEnd Function",
+    "description": "Function procedure"
+  },
+  "Select Case": {
+    "prefix": "select",
+    "body": "Select Case ${1:variable}\n\tCase ${2:value1}\n\t\t${3}\n\tCase Else\n\t\t${4}\nEnd Select",
+    "description": "Select Case statement"
+  },
+  "On Error Resume Next": {
+    "prefix": "oern",
+    "body": "On Error Resume Next",
+    "description": "Enable error handling"
+  },
+  "On Error GoTo 0": {
+    "prefix": "oerg",
+    "body": "On Error GoTo 0",
+    "description": "Disable error handling"
+  },
+  "CreateObject": {
+    "prefix": "co",
+    "body": "Set ${1:obj} = Server.CreateObject(\"${2:Scripting.Dictionary}\")",
+    "description": "Server.CreateObject"
+  },
+  "Set Nothing": {
+    "prefix": "sn",
+    "body": "Set ${1:obj} = Nothing",
+    "description": "Destroy object reference"
+  },
+  "Response Redirect": {
+    "prefix": "redir",
+    "body": "Response.Redirect \"${1:url}\"",
+    "description": "Response.Redirect"
+  },
+  "Request Form": {
+    "prefix": "rf",
+    "body": "Request.Form(\"${1:fieldName}\")",
+    "description": "Request.Form value"
+  },
+  "Request QueryString": {
+    "prefix": "rqs",
+    "body": "Request.QueryString(\"${1:paramName}\")",
+    "description": "Request.QueryString value"
+  },
+  "Session Variable": {
+    "prefix": "sess",
+    "body": "Session(\"${1:key}\")",
+    "description": "Session variable"
+  },
+  "Include File": {
+    "prefix": "inc",
+    "body": "<!--#include file=\"${1:filename.asp}\"-->",
+    "description": "Server-side include"
+  },
+  "Include Virtual": {
+    "prefix": "incv",
+    "body": "<!--#include virtual=\"${1:/path/to/file.asp}\"-->",
+    "description": "Server-side virtual include"
+  },
+  "ASP Page Header": {
+    "prefix": "asphead",
+    "body": "<%@ Language=\"VBScript\" CodePage=\"65001\" %>\n<%\nOption Explicit\nResponse.Buffer = True\nResponse.ContentType = \"text/html; charset=utf-8\"\n%>",
+    "description": "Standard ASP page header"
+  },
+  "ADODB Connection": {
+    "prefix": "adoconn",
+    "body": "Dim conn\nSet conn = Server.CreateObject(\"ADODB.Connection\")\nconn.Open \"${1:connectionString}\"\n\n${2}\n\nconn.Close\nSet conn = Nothing",
+    "description": "ADODB Connection block"
+  },
+  "ADODB Recordset": {
+    "prefix": "adorec",
+    "body": "Dim rs\nSet rs = Server.CreateObject(\"ADODB.Recordset\")\nrs.Open \"${1:SELECT * FROM table}\", conn\n\nDo While Not rs.EOF\n\t${2}\n\trs.MoveNext\nLoop\n\nrs.Close\nSet rs = Nothing",
+    "description": "ADODB Recordset loop"
+  },
+  "Scripting Dictionary": {
+    "prefix": "dict",
+    "body": "Dim ${1:dict}\nSet ${1:dict} = Server.CreateObject(\"Scripting.Dictionary\")\n${1:dict}.Add \"${2:key}\", ${3:value}",
+    "description": "Scripting.Dictionary"
+  },
+  "FSO Read File": {
+    "prefix": "fsoread",
+    "body": "Dim fso, f, txt\nSet fso = Server.CreateObject(\"Scripting.FileSystemObject\")\nSet f = fso.OpenTextFile(Server.MapPath(\"${1:file.txt}\"), 1)\ntxt = f.ReadAll\nf.Close\nSet f = Nothing\nSet fso = Nothing",
+    "description": "FSO read file"
+  }
+}
