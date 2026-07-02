@@ -8,4 +8,4 @@ repository = "https://github.com/hendrymudarkt/zed-asp-classic"
 
 [grammars.asp_classic]
 repository = "https://github.com/hendrymudarkt/tree-sitter-asp-classic"
-rev = "f8d823c7656c33aea958cd0917b4a25695e9cd58"
+rev = "9a60b18bdba38349765aa3bfda9f3108a68e7639"
