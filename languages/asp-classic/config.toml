@@ -1,23 +1,12 @@
-[language]
 name = "ASP Classic"
-grammar = "asp-classic"
+grammar = "asp_classic"
 path_suffixes = ["asp", "asa"]
-line_comment = "'"
-block_comment = ["<!--", "-->"]
+line_comments = ["' "]
+block_comment = ["<!--", " -->"]
 first_line_pattern = "<%@\\s*(?i:language)\\s*=\\s*[\"']?(?i:vbscript|jscript)"
-
-[brackets]
-[brackets.curly]
-start = "{"
-end = "}"
-[brackets.paren]
-start = "("
-end = ")"
-
-[indent]
-tab_size = 4
-indent_size = 4
-indent_style = "space"
-
-[overrides.comment]
-comment = { line = "'" }
+autoclose_before = ")]}"
+brackets = [
+  { start = "(", end = ")", close = true, newline = true },
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["string"] },
+]
