@@ -30,6 +30,12 @@
 (operator) @operator
 (punctuation) @punctuation.delimiter
 
+; === Closing HTML tags (orphaned by ASP blocks) ===
+; Colored directly by our grammar since the bundled HTML grammar can't pair
+; closers with openers that are in a different `html` fragment. </style> and
+; </script> are excluded — they stay inside `html` and preserve CSS/JS injection.
+(html_close_tag) @tag
+
 ; === #include SSI directive ===
 ; Deliberately NOT highlighted (no captures), so it renders as plain/default
 ; text — like VS Code's text.html.asp, where <!--#include ...--> looks black
